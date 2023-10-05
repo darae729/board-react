@@ -1,7 +1,9 @@
+import React from "react";
 import { Component } from "react";
 import Axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 const Board = ({
     id,
@@ -165,15 +167,19 @@ class BoardList extends Component<IProps> {
                     </tbody>
                 </Table>
                 <br />
-                <Button variant="primary">글쓰기</Button>{" "}
-                <Button
-                    variant="secondary"
-                    onClick={() => {
-                        this.props.handleModify(this.state.checkList);
-                    }}
-                >
-                    수정
-                </Button>{" "}
+                <Link to="/write">
+                    <Button variant="primary">글쓰기</Button>
+                </Link>{" "}
+                <Link to="/write">
+                    <Button
+                        variant="secondary"
+                        onClick={() => {
+                            this.props.handleModify(this.state.checkList);
+                        }}
+                    >
+                        수정
+                    </Button>
+                </Link>{" "}
                 <Button variant="danger" onClick={this.handleDelete}>
                     삭제
                 </Button>{" "}

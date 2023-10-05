@@ -1,10 +1,11 @@
+import React from "react";
 import { Component } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BoardList from "BoardList";
 import Write from "Write";
 import Navi from "./Nav";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 /**
  * App class
@@ -56,16 +57,31 @@ class App extends Component {
         return (
             <div className="App">
                 <Navi />
-                <BoardList
-                    isComplete={this.state.isComplete}
-                    handleModify={this.handleModify}
-                    renderComplete={this.renderComplete}
-                ></BoardList>
-                <Write
-                    isModifyMode={this.state.isModifyMode}
-                    boardId={this.state.boardId}
-                    handleCancel={this.handleCancel}
-                ></Write>
+                <BrowserRouter>
+                    <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <BoardList
+                                    isComplete={this.state.isComplete}
+                                    handleModify={this.handleModify}
+                                    renderComplete={this.renderComplete}
+                                ></BoardList>
+                            }
+                        ></Route>
+
+                        <Route
+                            path="/write"
+                            element={
+                                <Write
+                                    isModifyMode={this.state.isModifyMode}
+                                    boardId={this.state.boardId}
+                                    handleCancel={this.handleCancel}
+                                ></Write>
+                            }
+                        ></Route>
+                    </Routes>
+                </BrowserRouter>
             </div>
         );
     }

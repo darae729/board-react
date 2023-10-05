@@ -3,6 +3,7 @@ import { Component } from "react";
 import Axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 interface IProps {
     isModifyMode: boolean;
@@ -134,12 +135,16 @@ class Write extends Component<IProps> {
                     </Form.Group>
                 </Form>
                 <br />
-                <Button variant="primary" onClick={this.props.isModifyMode ? this.update : this.write}>
-                    확인
-                </Button>{" "}
-                <Button variant="dark" onClick={this.props.handleCancel}>
-                    취소
-                </Button>
+                <Link to="/">
+                    <Button variant="primary" onClick={this.props.isModifyMode ? this.update : this.write}>
+                        등록
+                    </Button>
+                </Link>{" "}
+                <Link to="/">
+                    <Button variant="secondary" onClick={this.props.handleCancel}>
+                        취소
+                    </Button>
+                </Link>
             </div>
         );
     }

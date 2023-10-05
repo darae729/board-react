@@ -6,9 +6,9 @@ function Navi() {
         <>
             <Navbar bg="dark" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand href="#home">Home</Navbar.Brand>
+                    <Navbar.Brand href="/">Home</Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Board</Nav.Link>
+                        <Nav.Link href="/">Board</Nav.Link>
                         <Nav.Link href="#Login">Login</Nav.Link>
                     </Nav>
                 </Container>
